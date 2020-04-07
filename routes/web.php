@@ -13,12 +13,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/','welcome');
+
+Route::get('posts/{id}/{name}',function($Myid,$Myname){
+
+    // return "{$id}"." author:"  ." {$myname}";
+
+    $posts=[
+        1=>['title'=>$Myname],
+        2=>['title'=>'Mehdi Bezikha'],
+        3=>['title'=>'Sara El Gbouri'],
+    ];
+
+    return view('posts.show',
+    [
+        'data'=>$posts[$Myid]
+    ]);
+
+
 });
 
-Route::get('/about',function(){
 
-    return view('about');
+Route::view('/about','about');
 
-});
+// Route::get('/about',function(){
+
+//     return view('about');
+
+// });

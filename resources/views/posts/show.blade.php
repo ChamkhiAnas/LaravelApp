@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1>About Page</h1>
-    <p>About Me</p>
+
+<h1>{{$data['title']}}</h1>
+    
 @endsection

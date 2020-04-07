@@ -8,7 +8,8 @@
 </head>
 <body>
 
-    <h1>weld kawki boss</h1>
+
+    @yield('content')
 
 </body>
 </html>
