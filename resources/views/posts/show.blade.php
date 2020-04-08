@@ -2,9 +2,10 @@
 
 @section('content')
 
-<h1>{!! $data['title'] !!}</h1>
-<br>
-<h1>{{$author}}</h1>
-
+    
+       <h1> {{$post->title}} <h1>
+        <p>{{$post->content}}</p>
+        <p>{{$post->created_at}}</p>   
+       <span>{{$post->active}}</span>
     
 @endsection

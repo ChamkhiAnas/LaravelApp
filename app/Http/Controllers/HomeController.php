@@ -14,19 +14,19 @@ class HomeController extends Controller
     public function about(){
         return view('about');
     }
-    public function blog($Myid,$Myname="by default"){
+    // public function blog($Myid,$Myname="by default"){
 
-        $posts=[
-            1=>['title'=>'<a> Anas Chamkhi </a>'],
-            2=>['title'=>'Mehdi Bezikha'],
-            3=>['title'=>'Sara El Gbouri'],
-        ];
+    //     $posts=[
+    //         1=>['title'=>'<a> Anas Chamkhi </a>'],
+    //         2=>['title'=>'Mehdi Bezikha'],
+    //         3=>['title'=>'Sara El Gbouri'],
+    //     ];
     
-        return view('posts.show',
-        [
-            'data'=>$posts[$Myid],
-            'author'=>$Myname,
-        ]);
+    //     return view('posts.show',
+    //     [
+    //         'data'=>$posts[$Myid],
+    //         'author'=>$Myname,
+    //     ]);
         
-    }
+    // }
 }

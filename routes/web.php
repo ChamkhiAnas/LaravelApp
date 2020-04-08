@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('posts/{id}/{name?}', 'HomeController@blog')->name('blog-post');
+// Route::get('posts/{id}/{name?}', 'HomeController@blog')->name('blog-post');
 Route::get('/home','HomeController@home')->name('home');
 Route::get('/about','HomeController@about')->name('about');
+
+Route::resource('/posts',"PostController");
