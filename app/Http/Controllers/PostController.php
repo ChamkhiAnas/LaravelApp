@@ -50,9 +50,9 @@ class PostController extends Controller
 
     }
 
-    public function store(){
+    public function store(Request $request){
         
-        dd('ok');
+        dd($request->all());
        
 
     }

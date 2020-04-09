@@ -9,7 +9,7 @@
     </div>
     <div>
         <label for="content">Your Content</label>
-        <input name="content">
+        <input name="content"  id="content" type="text">
     </div>
     <button type="submit">Add Post </button>
 </form>
