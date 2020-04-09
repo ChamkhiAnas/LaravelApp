@@ -7,7 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    @if(session()->has('status'))
+        <h3 style="color:green">
+            {{session()->get('status')}}
+        </h3>
 
+    @endif
     <ul>
     <li><a href="{{ route('posts.index')}}">Home</a></li>
     <li><a href="{{ route('about')}}">About</a></li>

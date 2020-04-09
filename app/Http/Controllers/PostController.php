@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\str;
 
 
+
+
 class PostController extends Controller
 {
     /**
@@ -65,10 +67,10 @@ class PostController extends Controller
         $post->active=false;
         $post->save();
 
-        echo($post->id);
+        $request->session()->flash('status','post was created');
 
        
-        return redirect()->route('posts.show',['post'=>$post->id]);
+        return redirect()->route('posts.index');
 
     }
 
