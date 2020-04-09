@@ -59,6 +59,11 @@ class PostController extends Controller
         // dd($request->all());
         // $title=$request->input('title');
         // $content=$request->input('content');
+
+        $validatedData=$request->validate([
+            'title'=>'required|min:4|max:100',
+            'content'=>'required|'
+        ]);
         
         $post=New Post(); //instanciation de l'objet à partir de model post
         $post->title=$request->input('title');
