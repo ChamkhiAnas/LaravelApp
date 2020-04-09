@@ -52,7 +52,10 @@ class PostController extends Controller
 
     public function store(Request $request){
         
-        dd($request->all());
+        // dd($request->all());
+        $title=$request->input('title');
+        $content=$request->input('content');
+
        
 
     }
