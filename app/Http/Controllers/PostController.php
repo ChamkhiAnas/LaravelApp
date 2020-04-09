@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePost;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -54,16 +55,16 @@ class PostController extends Controller
 
     }
 
-    public function store(Request $request){
+    public function store(StorePost $request){
         
         // dd($request->all());
         // $title=$request->input('title');
         // $content=$request->input('content');
 
-        $validatedData=$request->validate([
-            'title'=>'required|min:4|max:100',
-            'content'=>'required|'
-        ]);
+        // $validatedData=$request->validate([
+        //     'title'=>'required|min:4|max:100',
+        //     'content'=>'required|'
+        // ]);
         
         $post=New Post(); //instanciation de l'objet à partir de model post
         $post->title=$request->input('title');
