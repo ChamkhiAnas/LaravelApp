@@ -12,6 +12,17 @@
         <input name="content"  id="content" type="text">
     </div>
     <button type="submit">Add Post </button>
+
+@if ($errors->any())
+    <ul>
+            @foreach ($errors->all() as $error)
+            <li style="color:red">{{ $error }}<li>
+            @endforeach
+    </ul> 
+    
+@endif
 </form>
+
+
 
 @endsection
