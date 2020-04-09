@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\str;
+
 
 class PostController extends Controller
 {
@@ -53,11 +55,20 @@ class PostController extends Controller
     public function store(Request $request){
         
         // dd($request->all());
-        $title=$request->input('title');
-        $content=$request->input('content');
+        // $title=$request->input('title');
+        // $content=$request->input('content');
+        
+        $post=New Post(); //instanciation de l'objet à partir de model post
+        $post->title=$request->input('title');
+        $post->content=$request->input('content');
+        $post->slug=Str::slug($post->title, '-');
+        $post->active=false;
+        $post->save();
 
-        dd($title, 'content', $content);
+        echo($post->id);
+
        
+        return redirect()->route('posts.show',['post'=>$post->id]);
 
     }
 
