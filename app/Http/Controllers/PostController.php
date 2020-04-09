@@ -65,13 +65,23 @@ class PostController extends Controller
         //     'title'=>'required|min:4|max:100',
         //     'content'=>'required|'
         // ]);
+
+
+        $data=$request->only(['title','content']);
+        $data['slug']=Str::slug($data['title'],'-');
+        $data['active']=false;
+        $post=Post::create($data);
+
+
+
+        //first way of persisting 
         
-        $post=New Post(); //instanciation de l'objet à partir de model post
-        $post->title=$request->input('title');
-        $post->content=$request->input('content');
-        $post->slug=Str::slug($post->title, '-');
-        $post->active=false;
-        $post->save();
+        // $post=New Post(); //instanciation de l'objet à partir de model post
+        // $post->title=$request->input('title');
+        // $post->content=$request->input('content');
+        // $post->slug=Str::slug($post->title, '-');
+        // $post->active=false;
+        // $post->save();
 
         $request->session()->flash('status','post was created');
 

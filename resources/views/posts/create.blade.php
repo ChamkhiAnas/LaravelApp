@@ -5,11 +5,11 @@
     @csrf
     <div>
         <label for="title">Your Title</label>
-        <input name="title" id="title" type="text">
+    <input name="title" id="title" type="text" value="{{old('title')}}">
     </div>
     <div>
         <label for="content">Your Content</label>
-        <input name="content"  id="content" type="text">
+        <input name="content"  id="content" type="text" value="{{old('content')}}">
     </div>
     <button type="submit">Add Post </button>
 
