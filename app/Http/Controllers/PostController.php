@@ -56,6 +56,7 @@ class PostController extends Controller
         $title=$request->input('title');
         $content=$request->input('content');
 
+        dd($title, 'content', $content);
        
 
     }
