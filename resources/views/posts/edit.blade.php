@@ -1,16 +1,20 @@
 @extends('layout')
 @section('content')
 
+
 <h1>
-    New Post
+    Edit Post
 </h1>
 
-
-<form  method="POST" action="{{route('posts.store')}}">
+<form  method="POST" action="{{route('posts.update',['post'=>$post->id])}}">
     @csrf
+    @method('PUT')
     @include('posts.form')
 
-    <button class="btn btn-block btn-primary" type="submit">Add Post </button>
+
+
+
+    <button class="btn btn-block btn-warning" type="submit">Update Post </button>
 
 @if ($errors->any())
     <ul>

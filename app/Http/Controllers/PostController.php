@@ -91,6 +91,46 @@ class PostController extends Controller
     }
 
 
+    public function edit($id){
+
+        $post=Post::findOrFail($id);
+        return view('posts.edit',[
+
+            'post'=>$post
+
+        ]);
+
+    }
+
+    public function update(StorePost $request, $id){
+        $post=Post::findOrFail($id);
+
+        $post->title=$request->input('title');
+        $post->content=$request->input('content');
+        $post->slug=Str::slug($request->input('content'),'-');
+
+        $post->save();
+
+        $request->session()->flash('status','post was Updated');
+
+       
+        return redirect()->route('posts.index');
+
+
+    }
+
+    public function destroy(Request $request,$id){
+
+        // $post=Post::findOrFail($id);
+        // $post->delete();
+     
+        Post::destroy($id);
+        $request->session()->flash('status','post was Deleted');
+        return redirect()->route('posts.index');
+        
+
+
+    }
  
  
 }
