@@ -1,2 +1,7 @@
 @extends('layout')
-    hello world this view is working   
+@section('content')
+
+<h1>Home Page</h1>
+<p>Learn Laravel 6</p>
+
+@endsection

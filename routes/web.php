@@ -15,9 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/',function(){
+    return view('home'); 
+});
 
 // Route::get('posts/{id}/{name?}', 'HomeController@blog')->name('blog-post');
 Route::get('/home','HomeController@home')->name('home');
 Route::get('/about','HomeController@about')->name('about');
+
+
 
 Route::resource('/posts',"PostController");
