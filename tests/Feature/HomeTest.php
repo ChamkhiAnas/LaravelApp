@@ -11,7 +11,13 @@ class HomeTest extends TestCase
     {
         $response = $this->get('/home');
         $response->assertSeeText('Home Page');
-        $response->assertSeeText('Learn Laravel 6 ');
+        $response->assertSeeText('Learn');
        
+    }
+    public function testAboutPage(){
+        $response = $this->get('/about');
+        $response->assertSeeText('About Page');
+       
+
     }
 }
