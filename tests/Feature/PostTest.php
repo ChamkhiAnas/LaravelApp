@@ -41,20 +41,55 @@ class PostTest extends TestCase
         $this->assertEquals(session('status'),'post was created');
         
     }
-    public function testPostStoreFail(){
-        $data=[
+    // public function testPostStoreFail(){
+    //     $data=[
 
-            'title'=>'test our post Store',
+    //         'title'=>'test our post Store',
+    //         'content'=> 'content store',
+    //     ];
+    //     $this->post('/posts',$data)
+    //          -> assertStatus(302)
+    //          -> assertSessionHas('status');
+        
+    //     $messages=session('errors')->getMessages();
+        
+    //     $this->assertEquals($messages['title']['0'],'the title field is required');
+    //     $this->assertEquals($messages['content']['0'],'The content field is required.');
+
+    // }
+    public function testPostUpdate(){
+        $post=new Post();
+        $post->title="second Title to test";
+        $post->content="new content";
+        $post->slug = Str::slug($post->title,'-');
+        $post->active=true;
+
+        $post->save();
+
+        $this->assertDatabaseHas('posts',$post->toArray());
+
+        $data=[            
+            'title'=>'test our post updated',
+            'slug'=>Str::slug('test our post store', '-'),
             'content'=> 'content store',
+            'active'=> true
         ];
-        $this->post('/posts',$data)
-             -> assertStatus(302)
-             -> assertSessionHas('status');
-        
-        $messages=session('errors')->getMessages();
-        
-        $this->assertEquals($messages['title']['0'],'the title field is required');
-        $this->assertEquals($messages['content']['0'],'The content field is required.');
+
+        $this->put("/posts/{$post->id}",$data)
+                ->assertStatus(302)
+                ->assertSessionHas('status');
+
+        $this->assertDatabaseHas('posts',[
+
+            'title'=>$data['title'],
+
+        ]);
+
+        $this->assertDatabaseMissing('posts',[
+
+            'title'=>$post->title
+        ]);
+
 
     }
 }
