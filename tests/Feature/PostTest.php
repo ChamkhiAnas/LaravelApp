@@ -26,4 +26,19 @@ class PostTest extends TestCase
 
 
     }
+    public function testPostStoreValid(){
+        $data=[
+
+            'title'=>'test our post Store',
+            'slug'=>Str::slug('test our post store', '-'),
+            'content'=> 'content store',
+            'active'=> false,
+        ];
+        $this->post('/posts',$data)
+             -> assertStatus(302)
+             -> assertSessionHas('status');
+        
+        $this->assertEquals(session('status'),'post was created');
+        
+    }
 }
