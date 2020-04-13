@@ -92,4 +92,24 @@ class PostTest extends TestCase
 
 
     }
+
+    // public function testPostDelete(){
+    //     $post=new Post;
+    //     $post->title="second Title to test";
+    //     $post->content="new content";
+    //     $post->slug = Str::slug($post->title,'-');
+    //     $post->active=true;
+
+    //     $post->save();
+
+    //     $this->assertDatabaseHas('posts',$post->toArray());
+
+        
+    //     $this->delete("/posts/{$post->id}")
+    //          ->assertStatus(302);
+    //         //  ->assertSessionsHas('status');
+
+    //     $this->assertDatabaseMissing('pots' ,$post->toArray());
+
+    // }
 }
