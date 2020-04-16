@@ -6,6 +6,7 @@ use App\Http\Requests\StorePost;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\str;
 
 
@@ -20,7 +21,18 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+    
+
+    // $posts=Post::get();
+
+
+    //     foreach($posts as $post){
+    //         foreach($post->comments as $comment){
+    //             dump($comment);
+    //         }
+    //     }
+
+ 
        return view('posts.index',[
         'posts'=>Post::all()
        ]);
